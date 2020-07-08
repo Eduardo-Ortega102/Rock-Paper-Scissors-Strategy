@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public abstract class Gesture {
     private static final String drawMessage = "Draw";
     private static final String paperAgainstRockMessage = "Paper defeats Rock";
@@ -70,8 +72,13 @@ public abstract class Gesture {
         }
     };
 
+    public static final Gesture[] SET = {PAPER, ROCK, SCISSORS};
 
     private Gesture() { }
+
+    public static Gesture getRandom() {
+        return SET[new Random().nextInt(SET.length)];
+    }
 
     public abstract String against(Gesture gesture);
     public abstract String againstPaper();
